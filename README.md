@@ -5,15 +5,19 @@
 <p align='center'>
 concise but not simple hexo theme.
 </p>
+<p>
+Fork from <a href="https://github.com/xbmlz/hexo-theme-maple/">xbmlz</a>, polish the UI of tags and categories, also change the page layout
+for better reading experience.
+</p>
 
 <br>
 
 <p align='center'>
-<a href="https://xbmlz.github.io">Live Demo</a>
+<a href="https://fogsong233.github.io">Live Demo</a>
 </p>
 
 <p align='center'>
-<b>English</b> | <a href="https://github.com/xbmlz/hexo-theme-maple/blob/main/README.zh-CN.md">简体中文</a>
+<b>English</b> | <a href="https://github.com/fogsong233/hexo-theme-maple/blob/main/README.zh-CN.md">简体中文</a>
 
 </p>
 
