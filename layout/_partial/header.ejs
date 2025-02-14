@@ -12,8 +12,26 @@
       </div>
       <div class="flex-1"></div>
       <div class="flex items-center gap-3">
-        <% for (var i in theme.nav){ %>
-          <a class="hidden sm:flex" href="<%- url_for(theme.nav[i]) %>"><%= i %></a>
+        <a class="w-5 h-5 hidden sm:flex" title="<%- key %>" href="rss2.xml"></a>
+          <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
+        </a>
+        <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
+          <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
+        </a>
+         <% for (var i in theme.nav){ %>
+          <% if(i.toLowerCase() === "about") {%>
+            <a class="hidden sm:flex" href="<%- url_for(theme.nav[i]) %>">
+              <iconify-icon width="20" icon="flowbite:profile-card-outline" id="theme-icon"></iconify-icon>
+            </a>
+          <% } else if(i.toLowerCase() === "categories") { %>
+            <a class="hidden sm:flex" href="<%- url_for(theme.nav[i]) %>">
+              <iconify-icon width="20" icon="iconamoon:category" id="theme-icon"></iconify-icon>
+            </a>
+          <% } else if(i.toLowerCase() === "tags") { %>
+            <a class="hidden sm:flex" href="<%- url_for(theme.nav[i]) %>">
+              <iconify-icon width="20" icon="tabler:tag" id="theme-icon"></iconify-icon>
+            </a>
+          <% } %>
         <% } %>
         <% if (theme.links !== undefined) { %>
           <% for (var key in theme.links) { %>
@@ -22,12 +40,7 @@
             </a>
           <% } %>
         <% } %>
-        <a class="w-5 h-5 hidden sm:flex" title="<%- key %>" href="rss2.xml">
-          <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
-        </a>
-        <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
-          <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
-        </a>
+
       </div>
       <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
         <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">

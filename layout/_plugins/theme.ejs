@@ -16,7 +16,7 @@
       window.matchMedia("(prefers-color-scheme: dark)").matches;
     const isDark = document.documentElement.classList.contains("dark");
     $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
-
+    document.documentElement.style.setProperty("--mod-card-bg-color", isDark ? "#0d0d0d" : "#f6f6f6");
     function toggleGiscusTheme() {
       const isDark = document.documentElement.classList.contains("dark");
       const giscusFrame = document.querySelector("iframe.giscus-frame");
@@ -40,6 +40,7 @@
       const setting = localStorage.getItem("hexo-color-scheme") || "auto";
       isDark = !isDark;
       document.documentElement.classList.toggle("dark", isDark);
+      document.documentElement.style.setProperty("--mod-card-bg-color", isDark ? "#0d0d0d" : "#f6f6f6");
       $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
       if (prefersDark === isDark) {
         localStorage.setItem("hexo-color-scheme", "auto");
@@ -56,6 +57,8 @@
         const setting = localStorage.getItem("hexo-color-scheme") || "auto";
         if (setting === "auto") {
           document.documentElement.classList.toggle("dark", e.matches);
+          document.documentElement.style.setProperty("--mod-card-bg-color", e.matches ? "#0d0d0d" : "#f6f6f6");
+          console.log("ww");
           $("#theme-icon").attr(
             "icon",
             e.matches ? "ri:moon-line" : "ri:sun-line"

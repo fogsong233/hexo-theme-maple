@@ -22,14 +22,56 @@ how to add a category page:
 <%- partial('archive', {pagination: config.category, index: true}) %>
 <% } else { %>
 <div class="px-6 max-w-prose mx-auto md:px-0 mt-6">
-  <h2 class="font-bold text-2xl">Categories</h2>
+<h1 class="font-bold text-2xl" style="font-size: 2em; margin-bottom: 5rem;">Categories</h1>
   <ul class="mt-2">
     <% site.categories.forEach(category =>{ %>
-      <li class="mt-2">
-        <a href="<%- url_for(category.path) %>"> <%- category.name %></a>
-        <span>(<%- category.posts.length %>)</span>
-      </li>
+      <a href="<%- url_for(category.path) %>">
+        <div class="cat-card">
+          <div class="cat-name"> <%- category.name %></div>
+          <div class="float-num"><%- category.posts.length %></div>
+        </div>
+      </a>
     <% }) %>
   </ul>
 </div>
 <% } %>
+<style>
+:root {
+  --mod-card-bg-color: #f6f6f6;
+}
+.cat-card {
+  height: 6em;
+  width: 85%;
+  background-color: var(--mod-card-bg-color) !important;
+   border-radius: 10px;
+  padding: 1em 2em;
+  margin: 1.5em auto 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.cat-card:hover {
+  transform: scale(1.05) perspective(1000px) rotateX(-20deg);
+
+}
+
+.cat-name {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.float-num {
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  transform: scale(5);
+  font-weight: 700;
+  opacity: 0.9;
+}
+</style>

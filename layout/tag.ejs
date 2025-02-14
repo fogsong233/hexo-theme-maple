@@ -20,15 +20,57 @@ how to add a tag page:
   </div>
   <%- partial('archive', {pagination: config.tag, index: true}) %>
 <% } else { %>
-  <div class="px-6 max-w-prose mx-auto md:px-0 mt-6">
-    <h2 class="font-bold text-2xl">Tags</h2>
-    <ul class="mt2">
+<div class="px-6 max-w-prose mx-auto md:px-0 mt-6">
+<h1 class="font-bold text-2xl" style="font-size: 2em; margin-bottom: 5rem;">Categories</h1>
+  <ul class="mt-2">
       <% site.tags.forEach(item => { %>
-        <li class="mt-2">
-          <a href="<%-url_for(item.path)%>"><%- item.name%></a>
-          <span >(<%-item.length%>)</span>
-        </li>
-      <% }) %>
-    </ul>
-  </div>
+      <a href="<%- url_for(item.path) %>">
+        <div class="cat-card">
+          <div class="cat-name"> <%- item.name %></div>
+          <div class="float-num"><%- item.length %></div>
+        </div>
+      </a>
+    <% }) %>
+  </ul>
+</div>
 <% } %>
+<style>
+:root {
+  --mod-card-bg-color: #f6f6f6;
+}
+.cat-card {
+  height: 6em;
+  width: 85%;
+  background-color: var(--mod-card-bg-color) !important;
+   border-radius: 10px;
+  padding: 1em 2em;
+  margin: 1.5em auto 0;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  overflow: hidden;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.cat-card:hover {
+  transform: scale(1.05) perspective(1000px) rotateX(-20deg);
+
+}
+
+.cat-name {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.float-num {
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  transform: scale(5);
+  font-weight: 700;
+  opacity: 0.9;
+}
+</style>

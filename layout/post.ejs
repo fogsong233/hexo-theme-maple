@@ -5,9 +5,9 @@
 <% if (toc(page.content).length !== 0) { %>
   <%- partial('_partial/toc') %>
 <% } %>
-<section class="px-6 max-w-prose mx-auto md:px-0">
+<section class="px-6 mx-auto md:px-0 mod-width max-w-prose"  style=" margin-top: 15vh !important;">
   <!-- header -->
-  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+  <header class="overflow-hidden pt-6 pb-6 md:pt-12" >
     <div class="pt-4 md:pt-6">
       <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
         <%- page.title %>
@@ -45,7 +45,7 @@
     </div>
   </header>
   <!-- content -->
-  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
+  <article class="post-content prose m-auto slide-enter-content dark:prose-invert mod-width"">
     <%- page.content %>
   </article>
   <!-- tag -->
@@ -59,7 +59,7 @@
     <% } %>
   </div>
   <!-- prev and next -->
-  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
+  <div class="flex justify-between mt-12 pt-6">
     <div>
       <% if (page.prev) { %>
         <a href="<%- url_for(page.prev.path) %>" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
@@ -88,3 +88,12 @@
 <%- partial('_plugins/mermaid') %>
 <%- partial('_plugins/fancybox') %>
 <%- partial('_plugins/tocbot') %>
+
+<style>
+  @media screen and (min-width: 900px) {
+    .mod-width {
+     max-width: 87ch !important;
+    }
+  }
+
+</style>

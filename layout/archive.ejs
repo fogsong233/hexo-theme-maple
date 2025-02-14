@@ -1,9 +1,9 @@
-<section class="px-6 max-w-prose mx-auto gap-12 grid grid-cols-1">
+<section class="px-6 max-w-prose mx-auto gap-12 grid grid-cols-1" style="margin-top: 15vh;">
   <div class="flex flex-col h-48 items-center justify-center">
-    <h1 class="site-title text-4xl leading-relaxed">
+    <h1 class="site-title text-4xl leading-relaxed" style="font-weight: 600; font-family: serif;">
       <%= config.title %>
     </h1>
-    <p class="text-gray-500 mt-2">
+    <p class="text-gray-500 mt-2" style="font-style: italic;">
       <%= config.subtitle %>
     </p>
   </div>
@@ -15,7 +15,7 @@
         <span class="text-9xl opacity-10 absolute -left-11 -top-6 font-bold"><%- cur_year %></span>
       </div>
     <% last_year = cur_year; } %>
-    <a style="<%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
+    <a style="><%- '--stagger:' + index %>" href="<%- url_for(post.path) %>" data-animate>
       <header>
         <h2 class="font-bold text-xl">
           <%- post.title %>
